@@ -1,0 +1,14 @@
+.active {
+  color: var(--purple-500); /* Troque pela cor que você deseja */
+  position: relative;
+}
+
+.active:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  display: block;
+  background: var(--purple-500);
+  position: absolute;
+  bottom: -24px;
+}

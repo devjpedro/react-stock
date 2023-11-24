@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple-300: #6D42D0;
+  --purple-500: #8257E6;
+  --purple-700: #5B4699;
+  --gray-500: #2C2C2D;
+  --gray-700: #1c1a1d;
+  --white: #ffffff;
+}
+
+:not(input, a):focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--purple-500);
+}
+
+body {
+  background-color: var(--gray-500);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, button, textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+ul {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
