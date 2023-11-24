@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# React Stock
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o Projeto
 
-Currently, two official plugins are available:
+React Stock é um gestor de estoque construído com as tecnologias mais recentes. Ele permite que os usuários gerenciem seu estoque de forma eficiente e eficaz.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- **Login**: Acesse sua conta com segurança.
+- **Cadastrar**: Crie uma nova conta para começar a gerenciar seu estoque.
+- **Recuperar Senha**: Recupere sua senha de forma segura.
+- **Criar Item**: Adicione novos itens ao seu estoque.
+- **Ver Item**: Veja os detalhes dos itens em seu estoque.
+- **Atualizar Item**: Atualize as informações dos itens conforme necessário.
+- **Excluir Item**: Remova itens do seu estoque quando não forem mais necessários.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Como Usar
 
-- Configure the top-level `parserOptions` property like this:
+1. Clonar repositório
+``git clone https://github.com/devjpedro/react-stock.git``
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. Navegar até o diretório
+``cd react-stock``
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. Instalar dependências
+``yarn`` ou ``npm i``
+
+4. Subir projeto Local
+``yarn dev`` ou ``npm run dev``
+
+5. Acessar projeto
+``http://localhost:5173/``
+
+## Visualização Online
+
+Você também pode visualizar o projeto online através do seguinte link:
+https://reactstockjp.netlify.app
+
+## Tecnologias Usadas
+
+- **ReactJS**: Uma biblioteca JavaScript para construir interfaces de usuário.
+- **TypeScript**: Um superconjunto de JavaScript que adiciona tipagem estática.
+- **Vite**: Uma ferramenta de construção que oferece um desenvolvimento mais rápido e um pacote de produção menor.
+- **Firebase**: Uma plataforma de desenvolvimento de aplicativos que fornece uma variedade de ferramentas e serviços.
+- **React Hook Form**: Uma biblioteca para coletar dados de formulário com validação.
+- **Zod**: Uma biblioteca de validação de dados.
+- **MUI**: Uma biblioteca de componentes de interface do usuário.
+- **Date-Fns**: Uma biblioteca para manipular datas em JavaScript.
+- **Styled Components**: Uma biblioteca para estilizar componentes React.
+- **React Toastify**: Uma biblioteca para adicionar notificações ao seu aplicativo.
+- **UUID**: Uma biblioteca para criar identificadores únicos.
+
