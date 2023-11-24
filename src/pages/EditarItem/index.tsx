@@ -17,15 +17,19 @@ import { db } from "../../../db/firebaseConnection";
 import { DefaultButton } from "../../components/DefaultButton";
 import { ItemProps, ItemsContext } from "../../context/ItemsContext";
 
-type editItemFormData = zod.infer<typeof editItemFormValidationSchema>;
-
 const editItemFormValidationSchema = zod.object({
   nome: zod.string().min(1, "Nome é obrigatório"),
   quantidade: zod.number().min(1, "Quantidade é obrigatório"),
-  preco: zod.string().min(1, "Preço é obrigatório"),
+  preco: zod
+    .string()
+    .min(0.01, "Preço é obrigatório")
+    .transform((value) => Number(value))
+    .refine((value) => value > 0, "Insira um valor válido"),
   categoria: zod.string().min(1, "Categoria é obrigatório"),
   descricao: zod.string().min(1, "Este campo é obrigatório"),
 });
+
+type editItemFormData = zod.infer<typeof editItemFormValidationSchema>;
 
 export default function EditarItem() {
   const navigate = useNavigate();
@@ -55,7 +59,7 @@ export default function EditarItem() {
     defaultValues: {
       nome: itemActive?.nome,
       quantidade: itemActive?.quantidade,
-      preco: itemActive?.preco,
+      preco: Number(itemActive?.preco) ?? 0,
       categoria: itemActive?.categoria,
       descricao: itemActive?.descricao,
     },

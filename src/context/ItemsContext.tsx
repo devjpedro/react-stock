@@ -17,7 +17,7 @@ export interface ItemProps {
   categoria: string;
   descricao: string;
   quantidade: number;
-  preco: string;
+  preco: number | string;
   registerDate: Date | string;
   updatedDate?: Date | string;
 }

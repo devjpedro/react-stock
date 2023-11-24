@@ -7,7 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as zod from "zod";
 import { auth } from "../../../db/firebaseConnection";
+import { Loading } from "../../components/Loading";
 import { ItemsContext } from "../../context/ItemsContext";
+import { UserContext } from "../../context/UserContext";
 
 const loginFormValidationSchema = zod.object({
   email: zod.string().email("Email é obrigatório"),
@@ -28,105 +30,115 @@ export function Register() {
   });
 
   const { matchSm } = useContext(ItemsContext);
+  const { setLoading } = useContext(UserContext);
 
   const errors = formState.errors;
 
   async function handleSubmitRegister(data: loginFormData) {
+    setLoading(true);
     await createUserWithEmailAndPassword(auth, data.email, data.senha)
       .then(() => {
+        setLoading(false);
         toast.success("Cadastrado com sucesso!");
         reset();
       })
       .catch((error) => {
+        setLoading(false);
         if (error.code === "auth/weak-password") {
-          alert("Senha muito fraca.");
+          toast.error("Senha muito fraca!");
+          return;
         } else if (error.code === "auth/email-already-in-use") {
-          alert("Email já existe!");
+          toast.error("Email já existe!");
+          return;
         }
+        toast.error("Ocorreu um erro");
       });
   }
 
   return (
-    <Box
-      height="100vh"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      textAlign="center"
-    >
+    <>
+      <Loading />
       <Box
-        width={matchSm ? 300 : 500}
-        p={matchSm ? 3 : 5}
-        sx={{ background: "var(--gray-700)" }}
-        borderRadius={2}
+        height="100vh"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
       >
-        <Typography
-          textTransform="uppercase"
-          fontWeight="900"
-          variant="h5"
-          color={"var(--purple-500)"}
-          mb={5}
-        >
-          React Stock
-        </Typography>
-        <Typography variant="h5" mb={3}>
-          Crie sua conta
-        </Typography>
         <Box
-          component="form"
-          onSubmit={handleSubmit(handleSubmitRegister)}
-          display="flex"
-          flexDirection="column"
-          gap={2}
-          textAlign="start"
+          width={matchSm ? 300 : 500}
+          p={matchSm ? 3 : 5}
+          sx={{ background: "var(--gray-700)" }}
+          borderRadius={2}
         >
-          <TextField
-            id="email"
-            variant="outlined"
-            placeholder="Email"
-            type="email"
-            error={!!errors.email}
-            helperText={errors.email?.message}
-            {...register("email")}
-            InputProps={{
-              sx: {
-                color: "#000",
-                background: "var(--white)",
-              },
-            }}
-          />
-          <TextField
-            id="senha"
-            variant="outlined"
-            placeholder="Senha"
-            type="password"
-            error={!!errors.senha}
-            helperText={errors.senha?.message}
-            {...register("senha")}
-            InputProps={{
-              sx: {
-                color: "#000",
-                background: "var(--white)",
-              },
-            }}
-          />
-          <Button type="submit" variant="contained">
-            Cadastrar
-          </Button>
-        </Box>
-        <Typography mt={3}>
-          Já possui uma conta?{" "}
           <Typography
-            component="span"
-            color="var(--purple-500)"
-            sx={{ cursor: "pointer" }}
-            onClick={() => navigate("/login")}
+            textTransform="uppercase"
+            fontWeight="900"
+            variant="h5"
+            color={"var(--purple-500)"}
+            mb={5}
           >
-            Entre agora!
+            React Stock
           </Typography>
-        </Typography>
+          <Typography variant="h5" mb={3}>
+            Crie sua conta
+          </Typography>
+          <Box
+            component="form"
+            onSubmit={handleSubmit(handleSubmitRegister)}
+            display="flex"
+            flexDirection="column"
+            gap={2}
+            textAlign="start"
+          >
+            <TextField
+              id="email"
+              variant="outlined"
+              placeholder="Email"
+              type="email"
+              error={!!errors.email}
+              helperText={errors.email?.message}
+              {...register("email")}
+              InputProps={{
+                sx: {
+                  color: "#000",
+                  background: "var(--white)",
+                },
+              }}
+            />
+            <TextField
+              id="senha"
+              variant="outlined"
+              placeholder="Senha"
+              type="password"
+              error={!!errors.senha}
+              helperText={errors.senha?.message}
+              {...register("senha")}
+              InputProps={{
+                sx: {
+                  color: "#000",
+                  background: "var(--white)",
+                },
+              }}
+            />
+            <Button type="submit" variant="contained">
+              Cadastrar
+            </Button>
+          </Box>
+          <Typography mt={3}>
+            Já possui uma conta?{" "}
+            <Typography
+              component="span"
+              color="var(--purple-500)"
+              sx={{ cursor: "pointer" }}
+              onClick={() => navigate("/login")}
+            >
+              Entre agora!
+            </Typography>
+          </Typography>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }

@@ -32,6 +32,7 @@ export function Item() {
         .then(() => {
           setItems(itemsWithoutItemToDelete);
           toast.success("O item foi removido!");
+          navigate("/estoque");
         })
         .catch((error) => console.log(error));
     }
