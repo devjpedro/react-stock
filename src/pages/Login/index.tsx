@@ -3,7 +3,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as zod from "zod";
 import { auth } from "../../../db/firebaseConnection";
@@ -124,17 +124,19 @@ export function Login() {
               },
             }}
           />
-          <Typography
-            variant="subtitle2"
-            component="a"
-            sx={{
-              color: "#d6d6d6",
-              cursor: "pointer",
-              textDecorationStyle: "solid",
-            }}
-          >
-            Esqueceu a senha?
-          </Typography>
+          <Link to="/recuperar-senha">
+            <Typography
+              variant="subtitle2"
+              component="a"
+              sx={{
+                color: "#d6d6d6",
+                cursor: "pointer",
+                textDecorationStyle: "solid",
+              }}
+            >
+              Esqueceu a senha?
+            </Typography>
+          </Link>
           <Button type="submit" variant="contained">
             Login
           </Button>

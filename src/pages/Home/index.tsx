@@ -8,7 +8,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { isSameDay } from "date-fns";
+import { isSameWeek } from "date-fns";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { DefaultButton } from "../../components/DefaultButton";
@@ -32,7 +32,7 @@ export function Home() {
   const today = new Date();
 
   const recentItems = items.filter((item) =>
-    isSameDay(new Date(item.registerDate), today)
+    isSameWeek(new Date(item.registerDate), today)
   );
 
   const itemsRunningOut = items.filter((item) => item.quantidade <= 5);

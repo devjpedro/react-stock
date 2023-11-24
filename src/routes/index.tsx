@@ -7,6 +7,7 @@ import { Estoque } from "../pages/Estoque";
 import { Home } from "../pages/Home";
 import { Item } from "../pages/Item";
 import { Login } from "../pages/Login";
+import { RecuperarSenha } from "../pages/RecuperarSenhar";
 import { Register } from "../pages/Register";
 import { PrivateRoute } from "./privateRoute";
 
@@ -31,6 +32,7 @@ export default function RoutesApp() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/registrar" element={<Register />} />
+      <Route path="/recuperar-senha" element={<RecuperarSenha />} />
     </Routes>
   );
 }
