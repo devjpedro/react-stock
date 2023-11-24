@@ -9,6 +9,7 @@ React Stock é um gestor de estoque construído com as tecnologias mais recentes
 - **Login**: Acesse sua conta com segurança.
 - **Cadastrar**: Crie uma nova conta para começar a gerenciar seu estoque.
 - **Recuperar Senha**: Recupere sua senha de forma segura.
+- **Logout**: Saia da sua conta de forma segura.
 - **Criar Item**: Adicione novos itens ao seu estoque.
 - **Ver Item**: Veja os detalhes dos itens em seu estoque.
 - **Atualizar Item**: Atualize as informações dos itens conforme necessário.
@@ -42,6 +43,7 @@ https://reactstockjp.netlify.app
 - **TypeScript**: Um superconjunto de JavaScript que adiciona tipagem estática.
 - **Vite**: Uma ferramenta de construção que oferece um desenvolvimento mais rápido e um pacote de produção menor.
 - **Firebase**: Uma plataforma de desenvolvimento de aplicativos que fornece uma variedade de ferramentas e serviços.
+- **Firestore**: Uma base de dados NoSQL orientada a documentos, parte da plataforma Firebase.
 - **React Hook Form**: Uma biblioteca para coletar dados de formulário com validação.
 - **Zod**: Uma biblioteca de validação de dados.
 - **MUI**: Uma biblioteca de componentes de interface do usuário.
