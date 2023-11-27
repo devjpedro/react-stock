@@ -86,7 +86,12 @@ export function Item() {
           </Typography>
         </CustomizedCard>
         <CustomizedCard>
-          <Typography>Preço: R$ {itemActive.preco}</Typography>
+          <Typography>
+            Preço: R${" "}
+            {typeof itemActive.preco === "number"
+              ? itemActive.preco.toFixed(2).replace(".", ",")
+              : itemActive.preco}
+          </Typography>
         </CustomizedCard>
       </Box>
       <Typography variant="h5" mb={1}>

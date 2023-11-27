@@ -23,7 +23,7 @@ const editItemFormValidationSchema = zod.object({
   preco: zod
     .string()
     .min(0.01, "Preço é obrigatório")
-    .transform((value) => Number(value))
+    .transform((value) => Number(value.replace(",", ".")))
     .refine((value) => value > 0, "Insira um valor válido"),
   categoria: zod.string().min(1, "Categoria é obrigatório"),
   descricao: zod.string().min(1, "Este campo é obrigatório"),
