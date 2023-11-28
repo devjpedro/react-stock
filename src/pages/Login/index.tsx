@@ -1,7 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,6 +28,7 @@ export type loginFormData = zod.infer<typeof loginFormValidationSchema>;
 
 export function Login() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const { setUser, setLoading } = useContext(UserContext);
   const { matchSm } = useContext(ItemsContext);
 
@@ -122,7 +131,7 @@ export function Login() {
               id="senha"
               variant="outlined"
               placeholder="Senha"
-              type="password"
+              type={showPassword ? "text" : "password"}
               error={!!errors.senha}
               helperText={errors.senha?.message}
               {...register("senha")}
@@ -131,6 +140,16 @@ export function Login() {
                   color: "#000",
                   background: "var(--white)",
                 },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      edge="end"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {!showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
             <Link to="/recuperar-senha">
