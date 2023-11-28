@@ -67,7 +67,7 @@ export function Item() {
           <DefaultButton
             variantButton="success"
             text="Voltar"
-            handleClick={() => navigate("/estoque")}
+            handleClick={() => navigate(-1)}
           />
         </Box>
       </Box>
