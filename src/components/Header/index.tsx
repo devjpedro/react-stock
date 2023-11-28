@@ -1,3 +1,4 @@
+import { Logout } from "@mui/icons-material";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { signOut } from "firebase/auth";
 import { useContext, useState } from "react";
@@ -5,7 +6,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../../db/firebaseConnection";
 import { ItemsContext } from "../../context/ItemsContext";
 import { UserContext } from "../../context/UserContext";
-import { DefaultButton } from "../DefaultButton";
 
 const style = {
   position: "absolute" as "absolute",
@@ -103,11 +103,18 @@ export default function Header() {
               Itens
             </Typography>
           </NavLink>
-          <DefaultButton
-            variantButton="error"
-            text="Sair"
-            handleClick={handleOpen}
-          />
+          <Button
+            sx={{
+              background: "#101010",
+              "&:hover": {
+                background: "#c62828",
+              },
+            }}
+            variant="contained"
+            onClick={handleOpen}
+          >
+            <Logout />
+          </Button>
         </Box>
       </Box>
     </>

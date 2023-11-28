@@ -145,20 +145,23 @@ export function Estoque() {
                 }}
               >
                 <DefaultButton
-                  text="Ver"
                   variantButton="primary"
                   handleClick={() => navigate(`/estoque/${item.id}`)}
-                />
+                >
+                  Ver
+                </DefaultButton>
                 <DefaultButton
-                  text="Atualizar"
                   variantButton="success"
                   handleClick={() => navigate(`/estoque/editar/${item.id}`)}
-                />
+                >
+                  Atualizar
+                </DefaultButton>
                 <DefaultButton
-                  text="Excluir"
                   variantButton="error"
                   handleClick={() => handleDeleteItem(item)}
-                />
+                >
+                  Excluir
+                </DefaultButton>
               </TableCell>
             </TableRow>
           ))}

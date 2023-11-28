@@ -109,10 +109,11 @@ export function Home() {
                   </TableCell>
                   <TableCell align="center" sx={{ border: "none" }}>
                     <DefaultButton
-                      text="Ver"
                       variantButton="primary"
                       handleClick={() => navigate(`/estoque/${item.id}`)}
-                    />
+                    >
+                      Ver
+                    </DefaultButton>
                   </TableCell>
                 </TableRow>
               ))}
@@ -181,10 +182,11 @@ export function Home() {
                   </TableCell>
                   <TableCell align="center" sx={{ border: "none" }}>
                     <DefaultButton
-                      text="Ver"
                       variantButton="primary"
                       handleClick={() => navigate(`/estoque/${item.id}`)}
-                    />
+                    >
+                      Ver
+                    </DefaultButton>
                   </TableCell>
                 </TableRow>
               ))}

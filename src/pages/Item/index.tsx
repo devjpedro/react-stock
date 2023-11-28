@@ -55,20 +55,23 @@ export function Item() {
 
         <Box display="flex" gap={1.5} alignItems="center">
           <DefaultButton
-            text="Atualizar"
             variantButton="primary"
             handleClick={() => navigate(`/estoque/editar/${itemActive.id}`)}
-          />
+          >
+            Atualizar
+          </DefaultButton>
           <DefaultButton
-            text="Excluir"
             variantButton="error"
             handleClick={() => handleDeleteItem(itemActive)}
-          />
+          >
+            Excluir
+          </DefaultButton>
           <DefaultButton
             variantButton="success"
-            text="Voltar"
             handleClick={() => navigate(-1)}
-          />
+          >
+            Voltar
+          </DefaultButton>
         </Box>
       </Box>
       <Box

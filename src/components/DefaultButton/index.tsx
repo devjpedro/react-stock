@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
+import { ReactNode } from "react";
 
 interface IDefaultButtonProps {
-  text: string;
+  children: ReactNode;
   type?: "button" | "reset" | "submit";
   variantButton?: "success" | "error" | "primary";
   handleClick?: () => void;
@@ -9,7 +10,7 @@ interface IDefaultButtonProps {
 
 export function DefaultButton({
   handleClick,
-  text,
+  children,
   type = "button",
   variantButton = "primary",
 }: IDefaultButtonProps) {
@@ -24,7 +25,7 @@ export function DefaultButton({
         onClick={handleClick}
         type={type}
       >
-        {text}
+        {children}
       </Button>
     </div>
   );

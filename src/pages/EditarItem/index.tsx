@@ -206,12 +206,10 @@ export default function EditarItem() {
         <Textarea {...register("descricao")} minRows={8} id="descricao" />
       </Box>
       <Box alignSelf="start" ml="1rem" display="flex" gap={2}>
-        <DefaultButton type="submit" text="Salvar" />
-        <DefaultButton
-          variantButton="success"
-          text="Voltar"
-          handleClick={() => navigate(-1)}
-        />
+        <DefaultButton type="submit">Salvar</DefaultButton>
+        <DefaultButton variantButton="success" handleClick={() => navigate(-1)}>
+          Voltar
+        </DefaultButton>
       </Box>
     </Box>
   );
