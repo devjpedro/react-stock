@@ -37,7 +37,7 @@ React Stock é um gestor de estoque construído com as tecnologias mais recentes
 Você também pode visualizar o projeto online através do seguinte link:
 https://reactstockjp.netlify.app
 
-## Tecnologias Usadas
+## Tecnologias e Bibliotecas Usadas
 
 - **ReactJS**: Uma biblioteca JavaScript para construir interfaces de usuário.
 - **TypeScript**: Um superconjunto de JavaScript que adiciona tipagem estática.
