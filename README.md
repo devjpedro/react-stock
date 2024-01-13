@@ -32,7 +32,7 @@ React Stock é um gestor de estoque construído com as tecnologias mais recentes
 5. Acessar projeto
 ``http://localhost:5173/``
 
-## Visualização Online
+## Deploy
 
 Você também pode visualizar o projeto online através do seguinte link:
 https://reactstockjp.netlify.app
